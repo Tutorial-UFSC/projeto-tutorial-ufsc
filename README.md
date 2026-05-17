@@ -24,6 +24,8 @@ Guias focados na análise de circuitos, pinagem, níveis de tensão, barramentos
 *   **[Anemômetro - Conexão e Pulso](https://github.com/repositorio-code/2024.1_DEC0013_WEATHER-STATION-HARDWARE/tree/main/sensors/Anemometer):** Instrumentação de sensor de efeito Hall, análise de circuito para contagem de pulsos e proteção de pino contra picos de tensão.
 *   **[Sensor BMP280 - Barramento I2C](https://github.com/repositorio-code/2024.1_DEC0013_WEATHER-STATION-HARDWARE/tree/main/sensors/BMP280):** Pinagem do sensor, níveis de tensão de operação (3.3V) e barramento físico I2C com resistores de pull-up.
 *   **[Sensor DHT11 - Interface Física](https://github.com/repositorio-code/2024.1_DEC0013_WEATHER-STATION-HARDWARE/tree/main/sensors/DHT11):** Pinagem e requisitos de barramento físico para comunicação em barramento de fio único (Single-Wire).
+*   **[Shiel - Arduino K596](https://github.com/LunaAlmeida/Monitoramento-Zabbix-ESP32/tree/main/Componentes/Arduino%20Shield%20K596):** é um módulo multifunções que reúne diversos sensores e componentes em uma única placa, permitindo prototipagem rápida sem necessidade de jumpers ou solda. Ele é ideal para iniciantes e estudantes, pois facilita testes de hardware e software em projetos com Arduino Uno
+*   https://github.com/LunaAlmeida/Monitoramento-Zabbix-ESP32/tree/main/Componentes/Arduino%20Shield%20K596
 
 ---
 
