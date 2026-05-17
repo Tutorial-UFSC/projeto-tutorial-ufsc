@@ -16,34 +16,31 @@ O objetivo é servir como guia prático para a integração de sensores, calibra
 
 ---
 
-## 📁 Links para os Tutoriais e Laboratórios
+## 🔌 Roteiros e Tutoriais: HARDWARE
 
-Os códigos e roteiros estão divididos pelos módulos de desenvolvimento abaixo:
+Guias focados na análise de circuitos, pinagem, níveis de tensão, barramentos físicos e condicionamento de sinal analógico/digital.
 
-### 🌦️ Módulo: Sensores e Aquisição de Dados (Estação Meteorológica)
-Desenvolvimento focado em leitura de barramentos digitais e tratamento de sinal analógico.
-
-*   **[Anemômetro](https://github.com/repositorio-code/2024.1_DEC0013_WEATHER-STATION-HARDWARE/tree/main/sensors/Anemometer):** Contagem de pulsos e integração de sensor de efeito Hall para medição de velocidade do vento.
-*   **[Sensor BMP280](https://github.com/repositorio-code/2024.1_DEC0013_WEATHER-STATION-HARDWARE/tree/main/sensors/BMP280):** Leitura de pressão atmosférica e temperatura via barramento I2C.
-*   **[Sensor DHT11](https://github.com/repositorio-code/2024.1_DEC0013_WEATHER-STATION-HARDWARE/tree/main/sensors/DHT11):** Coleta de umidade e temperatura utilizando protocolo Single-Wire (fio único).
-
-### 🫀 Módulo: Sistemas de Tempo Real (RTOS)
-Aplicações focadas em determinismo, gerência de tarefas e instrumentação médica.
-
-*   **[Detecção de Batimentos Cardíacos (Zephyr RTOS)](https://github.com/repositorio-code/2025.2_DEC7562_HEARTBEAT-DETECTION-USING-ZEPHYR-RTOS):** Implementação de monitoramento cardíaco utilizando threads, mutexes e timers no ecossistema Zephyr.
+### 🌦️ Sensores Ambientais (Projeto Estação Meteorológica)
+*   **[Anemômetro - Conexão e Pulso](https://github.com/repositorio-code/2024.1_DEC0013_WEATHER-STATION-HARDWARE/tree/main/sensors/Anemometer):** Instrumentação de sensor de efeito Hall, análise de circuito para contagem de pulsos e proteção de pino contra picos de tensão.
+*   **[Sensor BMP280 - Barramento I2C](https://github.com/repositorio-code/2024.1_DEC0013_WEATHER-STATION-HARDWARE/tree/main/sensors/BMP280):** Pinagem do sensor, níveis de tensão de operação (3.3V) e barramento físico I2C com resistores de pull-up.
+*   **[Sensor DHT11 - Interface Física](https://github.com/repositorio-code/2024.1_DEC0013_WEATHER-STATION-HARDWARE/tree/main/sensors/DHT11):** Pinagem e requisitos de barramento físico para comunicação em barramento de fio único (Single-Wire).
 
 ---
 
-## 🔬 Diretrizes para os Experimentos
+## 💻 Roteiros e Tutoriais: SOFTWARE
 
-Para a execução dos laboratórios, recomenda-se seguir o seguinte roteiro de validação:
+Guias focados em lógica de programação, arquitetura de sistemas de tempo real, leitura de protocolos de comunicação e processamento de dados.
 
-1. **Análise de Hardware:** Verificação de pinagem, níveis de tensão (3.3V/5V) e resistores de pull-up necessários no barramento (I2C/Single-Wire).
-2. **Filtragem de Sinal:** Implementação de filtros digitais simples (como média móvel) para estabilização das leituras dos sensores em ambientes com ruído.
-3. **Depuração:** Validação do status de inicialização dos periféricos via monitor serial antes de integrar os módulos de conectividade.
+### 🫀 Sistemas Operacionais de Tempo Real (RTOS)
+*   **[Detecção de Batimentos Cardíacos (Zephyr RTOS)](https://github.com/repositorio-code/2025.2_DEC7562_HEARTBEAT-DETECTION-USING-ZEPHYR-RTOS):** Estruturação do software sob o ecossistema Zephyr. Implementação prática de threads para amostragem do sensor, uso de mutexes para proteção de memória compartilhada e configuração de timers internos.
+
+### 🌦️ Drivers e Leitura de Protocolos
+*   **[Leitura I2C - BMP280](https://github.com/repositorio-code/2024.1_DEC0013_WEATHER-STATION-HARDWARE/tree/main/sensors/BMP280):** Implementação de software para varredura de registradores e conversão de dados brutos de pressão e temperatura.
+*   **[Protocolo de Comunicação - DHT11](https://github.com/repositorio-code/2024.1_DEC0013_WEATHER-STATION-HARDWARE/tree/main/sensors/DHT11):** Manipulação de software para o sincronismo do sinal de tempo crítico do protocolo Single-Wire.
 
 ---
 
-## 🎓 Uso Acadêmico e Contribuições
+## 🔬 Diretrizes para a Execução dos Experimentos
 
-Este portal é um ambiente vivo e colaborativo. Se você identificar melhorias nas rotinas de filtragem dos sensores, encontrar alguma inconsistência nos pinos dos diagramas ou quiser propor novas implementações (como suporte a novos RTOS), sinta-se à vontade para abrir uma **Pull Request** ou registrar uma **Issue** no repositório correspondente.
+1. **Validação de Hardware:** Sempre verifique se os níveis lógicos do sensor são compatíveis com o microcontrolador (ex: sensores de 5V em pinos de 3.3V do ESP32/STM32 necessitam de divisor de tensão ou conversor de nível lógico).
+2. **Tratamento por Software:** Implemente filtros digitais básicos (como janelas de média móvel) nos códigos para mitigar flutuações e ruídos nas leituras dos pinos analógicos.
